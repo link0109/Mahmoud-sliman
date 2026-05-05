@@ -94,13 +94,15 @@
 <body>
 
 <div class="overlay">
-    <img src="profile.jpeg" class="profile" alt="Mahmoud Sliman">
+    <!-- !!! التعديل هنا: تم تغيير اسم الملف إلى profile.JPEG !!! -->
+    <img src="profile.JPEG" class="profile" alt="Mahmoud Sliman">
     
     <div class="brand-container">
         <h1 class="brand-name">Mahmoud Sliman</h1>
         <div class="brand-sub">Wedding Photographer</div>
     </div>
 
+    <!-- صفحة الحجز بنفس البيانات -->
     <div class="button booking-btn" onclick="openBooking()">
         <div class="icon-box" style="background:var(--gold); color:black;"><i class="fas fa-calendar-check"></i></div>
         <div class="btn-text">احجز الآن | Book Now</div>
@@ -139,6 +141,7 @@
     </div>
 </div>
 
+<!-- Modal الحجز -->
 <div id="booking-modal">
     <div class="modal-content">
         <h3 style="text-align:center; color:var(--gold); margin-bottom: 5px; font-size: 26px;">تفاصيل الحجز</h3>
@@ -179,6 +182,7 @@
     </div>
 </div>
 
+<!-- Modal التحويل -->
 <div id="payment-selection-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold); margin-bottom: 20px;">اختر وسيلة التحويل</h3>
@@ -188,6 +192,7 @@
     </div>
 </div>
 
+<!-- Modal الاتصال -->
 <div id="call-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold);">اتصل بنا</h3>
@@ -196,6 +201,7 @@
     </div>
 </div>
 
+<!-- Modal فودافون كاش -->
 <div id="vfcash-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold); margin-bottom: 20px;">فودافون كاش</h3>
