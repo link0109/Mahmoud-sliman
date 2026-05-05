@@ -16,7 +16,6 @@
         body {
             margin: 0;
             font-family: 'Montserrat', 'Cairo', sans-serif;
-            /* الحفاظ على الباك جراوند كما هي */
             background: #0f0f0f url('background.jpeg') no-repeat center center/cover fixed;
             display: flex; justify-content: center;
         }
@@ -26,14 +25,20 @@
             -webkit-backdrop-filter: blur(15px) saturate(160%);
             background: rgba(0, 0, 0, 0.7);
             width: 100%; min-height: 100vh;
-            padding: 40px 20px;
+            padding: 80px 20px; /* زيادة المساحة العلوية لتنزل المحتويات للأسفل */
             box-sizing: border-box;
             display: flex; flex-direction: column; align-items: center;
         }
 
         .profile {
-            width: 120px; height: 120px; border-radius: 50%;
-            object-fit: cover; border: 2px solid var(--gold); margin-bottom: 20px;
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%;
+            object-fit: cover; 
+            /* التعديل الأهم: تحريك الصورة داخل الدائرة ليظهر الوجه بوضوح */
+            object-position: center 15%; 
+            border: 2px solid var(--gold); 
+            margin-bottom: 20px;
         }
 
         .brand-container { text-align: center; margin-bottom: 30px; }
@@ -94,7 +99,6 @@
 <body>
 
 <div class="overlay">
-    <!-- !!! التعديل هنا: تم تغيير اسم الملف إلى profile.JPEG !!! -->
     <img src="profile.JPEG" class="profile" alt="Mahmoud Sliman">
     
     <div class="brand-container">
@@ -102,7 +106,6 @@
         <div class="brand-sub">Wedding Photographer</div>
     </div>
 
-    <!-- صفحة الحجز بنفس البيانات -->
     <div class="button booking-btn" onclick="openBooking()">
         <div class="icon-box" style="background:var(--gold); color:black;"><i class="fas fa-calendar-check"></i></div>
         <div class="btn-text">احجز الآن | Book Now</div>
@@ -141,7 +144,6 @@
     </div>
 </div>
 
-<!-- Modal الحجز -->
 <div id="booking-modal">
     <div class="modal-content">
         <h3 style="text-align:center; color:var(--gold); margin-bottom: 5px; font-size: 26px;">تفاصيل الحجز</h3>
@@ -182,7 +184,6 @@
     </div>
 </div>
 
-<!-- Modal التحويل -->
 <div id="payment-selection-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold); margin-bottom: 20px;">اختر وسيلة التحويل</h3>
@@ -192,7 +193,6 @@
     </div>
 </div>
 
-<!-- Modal الاتصال -->
 <div id="call-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold);">اتصل بنا</h3>
@@ -201,7 +201,6 @@
     </div>
 </div>
 
-<!-- Modal فودافون كاش -->
 <div id="vfcash-modal">
     <div class="modal-content" style="text-align:center;">
         <h3 style="color:var(--gold); margin-bottom: 20px;">فودافون كاش</h3>
@@ -212,7 +211,6 @@
 </div>
 
 <script>
-// تم حذف روابط جوجل شيت والتنبيهات البرمجية بناءً على طلبك
 function convertNumbers(str) {
     const arabicNums = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g];
     for (let i = 0; i < 10; i++) { if(str) str = str.replace(arabicNums[i], i); }
@@ -248,10 +246,9 @@ function sendToWhatsApp() {
     
     if(!type || !date || !name) { alert("من فضلك كمل البيانات الأول يا فندم"); return; }
     
-    let msg = `حجز جديد من الصفحة الشخصية:\nالاسم: ${name}\nالمناسبة: ${type}\nالتاريخ: ${date}`;
+    let msg = `حجز جديد لمحمود سليمان:\nالاسم: ${name}\nالمناسبة: ${type}\nالتاريخ: ${date}`;
     if(type === "كتب كتاب في البيت (Katb Ktab)") { msg += `\nالموعد: ${time}`; }
     
-    // تم استبدال الرقم برقم محمود سليمان
     window.open(`https://wa.me/201207664916?text=${encodeURIComponent(msg)}`, '_blank');
     closeBooking();
 }
@@ -260,7 +257,7 @@ function makeVFCashCall() {
     let amount = document.getElementById('cash-amount').value;
     amount = convertNumbers(amount); 
     if(!amount) { alert("يرجى كتابة المبلغ أولاً"); return; }
-    const phoneNumber = "01113337816"; // رقم فودافون كاش لمحمود
+    const phoneNumber = "01113337816"; 
     const ussd = `*9*7*${phoneNumber}*${amount}%23`;
     window.location.href = `tel:${ussd}`;
     closeVFCash();
