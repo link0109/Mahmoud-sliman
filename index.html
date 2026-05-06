@@ -154,6 +154,7 @@
             <option value="" disabled selected>اضغط لاختيار المناسبة</option>
             <option value="سيشن زفاف (Wedding Session)"> سيشن زفاف (Wedding Session)</option>
             <option value="سيشن زفاف و قاعة (Session & Party)"> سيشن زفاف وقاعة (Session & Party)</option>
+            <option value="تصوير الفل داي (Full Day ViP)"> تصوير الفل داي (Full Day ViP)</option>
             <option value="سيشن كتب كتاب (Katb Ktab Session)"> سيشن كتب كتاب (Katb Ktab Session)</option>
             <option value="كتب كتاب في البيت (Katb Ktab)"> كتب كتاب في البيت  (Katb Ktab)</option>
             <option value="سيشن خطوبة (Engagement Session)"> سيشن خطوبة (Engagement Session)</option>
@@ -246,7 +247,7 @@ function sendToWhatsApp() {
     
     if(!type || !date || !name) { alert("من فضلك كمل البيانات الأول يا فندم"); return; }
     
-    let msg = `حجز جديد لمحمود سليمان:\nالاسم: ${name}\nالمناسبة: ${type}\nالتاريخ: ${date}`;
+    let msg = `تم الحجز يا محمود:\nالاسم: ${name}\nالمناسبة: ${type}\nالتاريخ: ${date}`;
     if(type === "كتب كتاب في البيت (Katb Ktab)") { msg += `\nالموعد: ${time}`; }
     
     window.open(`https://wa.me/201207664916?text=${encodeURIComponent(msg)}`, '_blank');
